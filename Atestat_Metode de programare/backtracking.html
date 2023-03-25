@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Metode de programare</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div class="slogan">Metode de <a href="#">programare</a></div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="backtracking.html">Backtracking</a></li>
+          <li><a href="divide_impera.html">Divide et impera</a></li>
+          <li><a href="recursivitate.html">Recursivitate</a></li>
+          <li><a href="greedy.html">Greedy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <h3>Stiati ca?</h3>
+        <p>Limbajul C++ a fost inventat de către Bjarne Stroustrup în 1979, ca o extindere a limbajului C. Limbajul C a fost inventat în 1969-1973 de către Dennis Ritchie pentru a realiza sistemul de operare Unix.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Noutati</h3>
+          <p>Pentru prima dată, limbajul C++ oferă suport, independent de platforma de dezvoltare, pentru implementarea aplicațiilor ce presupun programarea concurentă (multithreading). Înainte de standardul C++11, aplicațiile multithreading se bazau pe extensii specifice platformei, spre exemplu Intel TBB, OpenMP, Pthreads, etc. </p>
+        </div>
+      </div>   
+      <div id="content">
+        <h1>Metoda Backtracking</h1>
+        
+        <p>Backtracking este numele unui algoritm general de descoperire a tuturor soluțiilor unei probleme de calcul, algoritm ce se bazează pe construirea incrementală de soluții-candidat, abandonând fiecare candidat parțial imediat ce devine clar că acesta nu are șanse să devină o soluție validă.</p>
+
+        <p>Exemplul de bază folosit în numeroase manuale de liceu și de nivel universitar este problema reginelor, care cere să se găsească toate modurile în care pot fi așezate pe o tablă de șah opt regine astfel încât să nu se atace. În abordarea backtracking, candidatele parțiale sunt aranjamente de câte k regine pe primele k rânduri ale tablei, toate pe rânduri și coloane diferite. Orice soluție parțială ce conține două regine care se atacă poate fi abandonată, deoarece în mod clar restul de regine nu pot fi așezate într-o soluție validă.</p>
+
+        <p>Tehnica backtracking se poate aplica doar pentru probleme ce admit conceptul de „candidat parțial de soluție” și oferă un test relativ rapid asupra posibilității ca un astfel de candidat să fie completat către o soluție validă. Când se poate aplica, însă, backtrackingul este adesea mult mai rapid decât căutarea prin metoda forței brute prin toți candidații, întrucât este capabilă să elimine dintr-un singur test un mare număr de candidați.</p>
+
+
+<div align="center">
+        <video controls="true" autoplay="true" width="400">
+        <source src="video/back.mp4" type="video/mp4">
+      </video>
+</div>
+<br><br>
+        <p>Backtrackingul este util la rezolvarea unor probleme de satisfacere a constrângerilor, cum ar fi cuvintele încrucișate, jocuri de sudoku și alte probleme similare. Ea stă la baza unei serii de limbaje de programare logică, cum ar fi Icon, Planner și Prolog.</p>
+
+        <p>Termenul „backtrack” a fost inventat de matematicianul american D. H. Lehmer în anii 1950.</p>
+
+
+        <p>Această metodă generală de programare se aplică problemelor în care soluţia se poate reprezenta sub forma unui vector X = (x1, ..., xn)ÎS unde S = S1 x ... x Sn , unde mulţimile S1, ...,Sn sunt mulţimi finite având |Si| = si elemente. Pentru fiecare problemă concretă sunt date anumite relaţii între componentele x1 , ... xn ale vectorului X, numite condiţii interne.</p>
+
+        <p>Mulţimea finită  S = S1 x S2 x... x Sn se numeşte spaţiul soluţiilor posibile (este un produs cartezian). Soluţiile posibile care satisfac condiţiile interne se numesc soluţii rezultat. Ceea ce ne propunem este de a determina toate soluţiile rezultat, cu scopul de a le afişa sau de a alege dintre ele una care maximizează sau minimizează o eventuală funcţie obiectiv dată.</p>
+
+        <p>O metoda simplă de determinare a soluţiilor rezultat constă în a genera într-un mod oarecare toate soluţiile posibile şi de a verifica dacă ele satisfac condiţiile interne. Dezavantajul constă în faptul că timpul cerut de această investigare exhaustivă este foarte mare. Astfel, chiar pentru |Si| = 2, " i, timpul necesar este de ordinul 2n, deci exponenţial.</p>
+
+        <p>Metoda backtracking urmăreşte să evite generarea tuturor soluţiilor posibile. În acest scop, elementele vectorului X primesc pe rând valori în sensul că lui xk i se atribuie o valoare numai dacă au fost atribuite deja valori lui  x1  ,... xk-1 . Mai mult, odată o valoare pentru  xn stabilită, nu se trece direct la atribuirea de valori lui xk+1 , neîndeplinirea lor exprimând faptul că oricum am alege xk+1,...,xn nu vom putea ajunge la o soluţie rezultat, adică o condiţie pentru care condiţiile interne să fie satisfăcute. Evident că în cazul neîndeplinirii condiţiilor de continuare va trebui să facem o altă alegere pentru xk sau dacă Sk a fost epuizat să micşorăm pe k cu o unitate încercând să facem o nouă alegere pentru xk etc.; această micşorare a lui k dă numele metodei, ilustrând faptul că atunci când nu mai putem avansa, urmărim înapoi secvenţa curentă din soluţie. Este evident că între condiţiile de continuare şi condiţiile interne există o strânsă legătură. O bună alegere pentru condiţiile de continuare are ca efect o importantă reducere a numărului de calcule.</p>
+
+        <p>Metoda backtracking poate fi reprezentată uşor, pe un arbore construit astfel:</p>
+        <ul>
+         <li> nivelul 1 conţine rădăcina;</li>
+         <li> din orice vârf de pe nivelul k pleacă sk muchii spre nivelul k+1 etichetaţi cu cele sk muchii ale lui Sk.</li>
+        </ul>
+
+        <p>Nivelul n+1 va conţine s1 × s2 × ... × sn vârfuri. Pentru fiecare vârf de pe nivelul n+1, etichetele muchiilor conţinute pe drumul ce leagă rădăcina de acest vârf reprezintă o soluţie posibilă.</p>
+
+        <p>Exemplu - Să considerăm problema submulţimilor de sumă dată care constă în următoarele: Fie A = (a1, a2, ..., an) cu ai > 0, " i. Fie MÎR+. Se caută toate submulţimile B ale lui A pentru care suma elementelor este M.</p>
+
+        <p>Pentru a putea realiza problema prin metoda backtracking vom reprezenta soluţia sub forma x = (x1, ..., xn) unde xi = 1 dacă aiÎB şi  xi = 0 în caz contrar. Sa ne situăm în ipoteza ca n=4. Arborele ataşat metodei backtracking este următorul:</p>
+
+
+        <div align="center">
+          <img src="images/1.gif">
+        </div>
+
+        <p>Câştigul obţinut prin introducerea condiţiilor de continuare constă în faptul că, dacă într-un vârf ele nu mai sunt verificate, se va renunţa la parcurgerea subarborelui care are ca rădăcină acest vârf.</p>
+        <p>Acest exemplu permite prezentarea unei variante a metodei backtracking. Într-adevăr, să considerăm drept soluţie posibilă o valoare k £ n împreună cu k-uplul (x1, ..., xk) unde pentru i Î {1, ..., k}, xi reprezintă indicele elementului pe care îl introducem în B. Evident xi ¹ xj pentru i¹j. Pentru a nu se repeta soluţii, vom presupune x1 &lt; x2 &lt; ... &lt; xn .</p>
+        <p>Obţinem astfel următorul arbore în care fiecare vârf corespunde unei soluţii posibile.</p>
+
+        <div align="center">
+          <img src="images/2.gif">
+        </div>
+
+        <p>Diferitele variante ale metodei backtracking nu schimbă esenţa ei care constă în faptul că este  reprezentabilă pe un arbore care este parcurs "coborând" în arbore numai dacă există şanse de a ajunge la o soluţie rezultat.</p>
+        <p>În continuare, problemele care vor fi prezentate vor urma o schema generală şi anume:</p>
+        <ul type="circle">
+          <li> se va testa dacă am obţinut o soluţie, situaţie în care acesta se va reţine;</li>
+          <li> dacă nu am obţinut soluţie se încearcă plasarea unui nou element în vectorul soluţie cu respectarea condiţiilor de continuare;</li>
+          <li> dacă nu se reuşeşte plasarea unui nou element şi spaţiul valorilor posibile de plasat s-a epuizat, se revine la poziţia anterioară şi se încearcă să se plaseze pe ea un alt element.</li>
+        </ul>
+        <p>Faptul că după plasarea unui element în vectorul soluţie algoritmul presupune plasarea unui element pe poziţia imediat următoare, adică de fapt reluarea algoritmului, conduce posibilitatea abordării recursive a algoritmilor de tip backtracking. Acest lucru permite o scriere mult mai scurtă şi mai simplă a algoritmilor şi apoi a programelor care îi implementează. Astfel, general, un algoritm backtracking poate fi prezentat astfel:</p>
+
+
+        <h3>Subalgoritm back (k)</h3>
+        <pre style="font-size:16px;">
+        pentru fiecare valoare i din multimea Sk execută
+            xk←i
+            dacă X respectă condiţiile interne atunci
+                dacă X este solutie atunci
+                    afisează X
+                altfel
+                    apelează back(k+1)
+                sfdacă
+            sfdacă
+        sfpentru
+        </pre>
+        <p>În funcţie de problema concretă, în algoritmul descris mai sus se vor modifica doar instrucţiunea pentru, condiţiile interne şi cele de soluţie, structura algoritmului păstrându-se.</p>
+
+        <h3>Probleme de generare. Oportunitatea utilizării metodei backtracking</h3>
+
+        <p>Problemele care se rezolvă prin metoda backtracking pot fi împărţite în mai multe grupuri de probleme cu rezolvări asemănătoare, in funcţie de modificările pe care le vom face în algoritm. Principalele grupuri de probleme sunt:</p>
+        <ol type="a">
+          <li>probleme în care vectorul soluţie are lungime fixă şi fiecare element apare o singură dată în soluţie;</li>
+          <li> probleme în care vectorul soluţie are lungime variabilă şi fiecare element poate să apară de mai multe ori în soluţie;</li>
+          <li> probleme în plan, atunci când spaţiul în care ne deplasăm este un tablou bidimensional.</li>
+        </ol>
+        <p>Vom prezenta în cele ce urmează câteva probleme care fac parte din primul grup. Cele mai cunoscute sunt:</p>
+        <ul type="circle">
+            <li>generarea permutărilor unei mulţimi</li>
+            <li>generarea aranjamentelor unei mulţimi</li>
+            <li>generarea submulţimilor unei mulţimi</li>
+            <li>generarea submulţimilor cu m elemente ale unei mulţimi (combinări)</li>
+            <li>generarea produsului cartezian a n mulţimi</li>
+            <li>generarea tuturor secvenţelor de n (par) paranteze care se închid corect.</li>
+            <li>colorarea ţărilor de pe o hartă astfel încât oricare două ţări vecine să aibă culori diferite</li>
+            <li>aranjarea a n regine pe o tablă de şah de dimensiune n fără ca ele să se atace. </li>
+        </ul>
+        <p>Toate problemele din acest grup au particularitatea că soluţia se obţine atunci când vectorul soluţie ajunge să conţină un anumit număr de elemente.</p>
+
+      </div>
+    </div>
+    <div id="footer">
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Metode de programare</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div class="slogan">Metode de <a href="#">programare</a></div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="backtracking.html">Backtracking</a></li>
+          <li><a href="divide_impera.html">Divide et impera</a></li>
+          <li class="current"><a href="recursivitate.html">Recursivitate</a></li>
+          <li><a href="greedy.html">Greedy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <h3>Stiati ca?</h3>
+        <p>Limbajul C++ a fost inventat de către Bjarne Stroustrup în 1979, ca o extindere a limbajului C. Limbajul C a fost inventat în 1969-1973 de către Dennis Ritchie pentru a realiza sistemul de operare Unix.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Noutati</h3>
+          <p>Pentru prima dată, limbajul C++ oferă suport, independent de platforma de dezvoltare, pentru implementarea aplicațiilor ce presupun programarea concurentă (multithreading). Înainte de standardul C++11, aplicațiile multithreading se bazau pe extensii specifice platformei, spre exemplu Intel TBB, OpenMP, Pthreads, etc. </p>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Recursivitatea</h1>
+      
+
+      <p>În matematică și informatică, recursivitatea sau recursia este un mod de a defini unele funcții. Funcția este recursivă, dacă definiția ei folosește o referire la ea însăși, creând la prima vedere un cerc vicios, care însă este numai aparent, nu și real.</p>
+
+<p>Nu toate funcțiile matematice pot fi definite recursiv. Cu alte cuvinte există și funcții nerecursive.</p>
+
+<p>În matematică și informatică recursivitatea funcționează prin definirea unuia sau a mai multe cazuri de bază, foarte simple, și apoi prin definirea unor reguli prin care cazurile mai complexe se reduc la cazuri mai simple.</p>
+
+<p>Un exemplu de recursivitate este în definirea formală a numerelor naturale din cadrul teoriei mulțimilor:</p>
+<ul>
+    <li>baza recursiei este faptul că 1 este număr natural;</li>
+    <li>în plus, orice număr natural are un succesor, care este de asemenea un număr natural.</li>
+</ul>
+
+<p>Vom prezenta în cele ce urmează câteva probleme care se pot rezolva pe baza unor relatii de recurenta. Cele mai cunoscute sunt:</p> 
+<ul>
+    <li>factorialul unui numar natural;</li>
+    <li>suma primelor n numere naturale;</li>
+    <li>algoritmul lui Euclid de aflare a celui mai mare divizor comun a două numere naturale date;</li>
+    <li>sirul lui Fibonacci;</li>
+    <li>calculul funcţiei Manna-Pnueli;</li>
+    <li>suma/produsul cifrelor unui număr natural;</li>
+    <li>suma elementelor unui vector;</li>
+    <li>cifra maxima/minima a unui numar.</li>
+</ul>
+          
+
+<p>Se numeşte recursivitate liniară recursivitatea in care nu pot apărea pe ramuri diferite ale execuţiei programului mai multe apeluri recursive, adică pe un anumit nivel apare doar un singur apel recursiv.</p>
+
+<p>Traversarea şi inversarea unei structuri inseamnă efectuarea unor operaţii oarecare asupra tuturor elementelor unei structuri în ordine directă, respectiv în ordine inversă. Variantele recursive sunt mai elegante şi concise, decât alte metode. Se pot aplica structurilor de tip tablou, listă, fişier şi pot fi o soluţie pentru diverse probleme (transformarea unui întreg dintr-o bază în alta, etc). Într-o formă generală, algoritmii se pot scrie:</p>
+
+<pre style="font-size:16px;">
+funcţie traversare(tip_element element) 
+{
+  dacă( element &lt;&gt; ultimul_din_structura) atunci
+    traversare(element_urmator)
+    prelucrare(element);
+}
+
+funcţie inversare (tip_element element)
+{
+  daca( element &lt;&gt; ultimul_din_structura) atunci
+    traversare(element_urmator);
+    prelucrare(element)
+}
+</pre>
+
+<p>Apelul iniţial al procedurii se face cu primul element al structurii. De observat importanţa ca parametrul formal al celor două funcţii să fie de tip valoare, pentru a nu fi alterat de apelul recursiv.</p>
+
+
+<p><u>Exemplu 1:</u></p>
+<p>Se citesc şi se afisează elementele întregi ale unui vector. Cele două funcţii recursive, pentru  citire şi afişare pot începe cu ultimul element din vector şi se termină cu primul.</p>
+
+<pre style="font-size:16px;">
+#include &lt;iostream&gt;
+using namespace std;
+int n,a[100];
+void citeste(int i)
+{
+  if (i!=n-1) 
+    citeste(i+1);
+  cout&lt;&lt;i&lt;&lt;” “;
+  cin&gt;a[i];
+}
+void scrie(int i)
+{
+  if (i!=n-1) scrie(i+1);
+  cout&lt;&lt;a[i]&lt;&lt;” “;
+}
+int main()
+{
+  cout&lt;&lt;”n=”;
+  cin&gt;n;
+  citeste(n-1); 
+  scrie(n-1);
+  return 0;
+}
+</pre>
+<br><br>
+<p><u>Exemplul 2.</u></p>
+<p>Să se verifice dacă există într-un vector cu n elemente întregi, cel puţin un element cu valoarea intreagă x. Fie vectorul a=(a1,a2,...,an). Funcţia iterativă gasit(x,i) este true daca x este in intervalul (a1,a2,...,an) si false in caz contrar.</p>
+
+<p>Se obsrevă că funcţia gasit are valoarea true fie dacă elementul curent are valoarea x, fie dacă cel puţin unul din elementele anterior testate are valoarea x. Funcţia recursivă poate fi definită în două moduri:</p>
+
+<p><u>Varianta 1- se evaluează funcţia gasit(x,n-1):</u></p>
+<pre style="font-size:16px;">
+#include &lt;iostream&gt;
+int a[100];
+int gasit(int x, int i)
+{
+  if(i==0) 
+    return x==a[0];
+  else 
+    return ((x==a[i]) || gasit(x,i-1));
+}
+int main()
+{
+  int x,i,n;
+  cout&lt;&lt;”n= ”;
+  cin&gt;x;
+  cout&lt;&lt;”x= ”;
+  cin&gt;&gt;x;
+  for(i=0;i&lt;n;i++)
+  {
+    cout&lt;&lt;”a[”&lt;&lt;i&lt;&lt;”]=”;
+    cin&gt;&gt;a[i];
+  }
+  if(gasit(x,n-1)) 
+    cout&lt;&lt;”s-a gasit elementul”&lt;&lt;x;
+  else 
+    cout&lt;&lt;”nu s-a gasit elementul”&lt;&lt;x;
+  return 0;
+}
+</pre><br><br>
+
+<p><u>Varianta 2- se evaluează funcţia gasit(x,0):</u></p>
+<pre style="font-size:16px;">
+#include &lt;iostream.h&gt;
+int a[100];
+int gasit(int x, int i)
+{
+  if(i==n-1) 
+    return x==a[n-1];
+  else 
+    return ((x==a[i]) || gasit(x,i+1));
+}
+int main()
+{
+  int x,i,n;
+  cout&lt;&lt;”n= ”;
+  cin&gt;&gt;x;
+  cout&lt;&lt;”x= ”;
+  cin&gt;&gt;x;
+  for(i=0;i&lt;n;i++)
+  {
+    cout&lt;&lt;”a[”&lt;&lt;i&lt;&lt;”]=”;
+    cin&gt;&gt;a[i];
+  }
+  if(gasit(x,0)) 
+    cout&lt;&lt;”s-a gasit elementul”&lt;&lt;x;
+  else 
+    cout&lt;&lt;”nu s-a gasit elementul”&lt;&lt;x;
+  return 0;
+}
+</pre><br><br>
+
+      </div>
+    </div>
+    <div id="footer">
+    </div>
+  </div>
+</body>
+</html>

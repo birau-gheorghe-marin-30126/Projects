@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Metode de programare</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div class="slogan">Metode de <a href="#">programare</a></div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="backtracking.html">Backtracking</a></li>
+          <li><a href="divide_impera.html">Divide et impera</a></li>
+          <li><a href="recursivitate.html">Recursivitate</a></li>
+          <li class="current"><a href="greedy.html">Greedy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <h3>Stiati ca?</h3>
+        <p>Limbajul C++ a fost inventat de către Bjarne Stroustrup în 1979, ca o extindere a limbajului C. Limbajul C a fost inventat în 1969-1973 de către Dennis Ritchie pentru a realiza sistemul de operare Unix.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Noutati</h3>
+          <p>Pentru prima dată, limbajul C++ oferă suport, independent de platforma de dezvoltare, pentru implementarea aplicațiilor ce presupun programarea concurentă (multithreading). Înainte de standardul C++11, aplicațiile multithreading se bazau pe extensii specifice platformei, spre exemplu Intel TBB, OpenMP, Pthreads, etc. </p>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Greedy</h1>
+        <p>Metoda Greedy este una din cele mai directe tehnici de proiectare a algoritmilor care se aplica la o varietate larga de probleme.In general,aceasta metoda se aplica problemelor de maxim sau minim sau mai general problemelor de optimizare.Specificul acestei metode consta in faptul ca se construieste solutia optima pas cu pas,la fiecare pas fiind selectat(sau „inghitit”) in solutie elementul care pare „cel mai bun”la momentul respectiv,in speranta ca va duce la solutie optima globala.</p>
+
+        <p>Este greu de spus forma generală a unei probleme rezolvabile cu tehnică Greedy. Algoritmii greedy (greedy = lacom) sunt în general simpli şi sunt folosiţi la probleme de optimizare, cum ar fi: să se găsească cea mai bună ordine de executare a unor lucrări pe calculator, să se găsească cel mai scurt drum într-un graf etc. In cele mai multe situaţii de acest fel avem:</p>
+<ul>
+  <li> mulţime de elemente (lucrări de executat, vârfuri ale grafului etc);</li>
+  <li> funcţie care verifică dacă o anumită mulţime de candidaţi constituie o soluţie posibilă, nu neapărat optimă, a problemei;</li>
+  <li> funcţie care verifică dacă pentru o mulţime de candidaţi este posibil să o completăm astfel încât să obţinem o soluţie posibilă, nu neapărat optimă, a problemei;</li>
+  <li> funcţie de selecţie care alege la orice moment cel mai potrivit element, încă nefolosit;</li>
+  <li> funcţie soluţie care spune când s-a ajuns la soluţie.</li>
+</ul>
+      <p>Pentru a rezolva o anumită problemă, un algoritm greedy construieşte soluţia pas cu pas. Iniţial, mulţimea candidaţilor selectaţi este vidă. La fiecare pas, încercăm să adăugăm acestei mulţimi cel mai potrivit element, conform funcţiei de selecţie. Dacă, după o astfel de adăugare, mulţimea de elemente obţinută nu mai poate duce la soluţie, se elimină ultimul element adăugat; acesta nu va mai fi niciodată considerat. Dacă, după adăugare, mulţimea de elemente selectate poate duce la soluţie, ultimul element adăugat va rămâne de acum încolo în ea. De fiecare dată când lărgim mulţimea elementelor selectate, verificăm dacă această mulţime nu constituie o soluţie posibilă a problemei noastre.</p>
+
+<p>Dacă algoritmul Greedy funcţionează corect, prima soluţie găsită va fi totodată o soluţie optimă a problemei.</p>
+
+<p>O întrebare firească este aceea dacă algoritmul Greedy duce totdeauna la soluţie optimă? Evident că nu. Sunt situaţii când soluţia găsită nu este optimă. Mai mult, pentru cele mai multe din probleme nu se cunosc algoritmi Greedy de rezolvare. Spre deosebire de Backtracking, algoritmul Greedy nu permite atunci când s-a observat că nu se poate ajunge la soluţie pentru o anumită secvenţă de elemente, revenirea înapoi, pe nivelele anterioare.</p>
+
+  <p>Pentru problemele care nu duc la soluţia optimă este necesar să se caute soluţii, chiar dacă nu optime, dar cât mai apropiate de acestea.</p>
+
+<p>Sa presupunem in mod abstract ca avem o problema descrisa de o multime A={x1,x2,....,xn}. Dorim sa determinam o multime B care sa fie inclusa in A si care corespunde unor criterii date, sa fie optima intr-un anumit sens. Metoda Greedy consta in parcurgerea elementelor multimii A, iar fiecare element va di inclus in B daca satisface criteriile impuse..Dupa includere unele elemente pot fi eliminate daca pe aceasta cale se obtine o solutie mai convenabila.</p>
+<p>Cei doi pasi ai unui algoritm specific Greedy sunt:</p>
+<ul>
+    <li>parcurgem multimea A, fie x elementul curent;</li>
+    <li>includem pe x in multimea B daca satisface criteriile cerute sau inlocuim cu x un element din B daca pe aceasta cale se obtine solutia abtima.</li>
+</ul>
+<h3>Algoritmul Greedy</h3>
+ 
+<pre style="font-size:16px;">
+ B=0
+ repeta
+    x=ALEGE(A)
+    A=A-{x}
+    daca CONDINT(B reunit cu {x}) atunci
+        B=B reunit cu {x}
+    sfarsit daca
+pana cand A=0
+</pre>
+          
+ <p>Functia CONDINT verifica daca sunt indeplinite criteriile cerute.</p>
+<p>La fiecare pas, procedura alege cel mai bun candidat la momentul respectiv, fară să-i pese de viitor şi fără să se răzgândească. Daca un candidat este inclus în soluţie, el rămâne acolo;</p>
+
+ <p>Dacă un candidat este exclus din soluţie, el nu va mai fi niciodată reconsiderat. Asemenea unui întreprinzător rudimentar care urmăreşte câştigul imediat în dauna celui de perspectivă, un algoritm Greedy acţionează simplist. Totuşi, ca şi în afaceri, o astfel de metodă poate da rezultate foarte bune tocmai datorită simplităţii ei.</p>
+ <p>Vom prezenta in continuare cateva probleme specifice acestei metode:</p>
+<ul>
+    <li>minimul sau maximul a n numere date;</li>
+    <li>problema rucsacului(cazul continu);</li>
+    <li>problema programarii spectacolelor;</li>
+    <li>aplicatii eficiente ca timp de executie sau memorie;</li>
+    <li>plata unei sume cu numar minim de bancnote(Greedy euristic);</li>
+    <li>problema comis-voiajorului(Greedy euristic).</li>
+</ul>
+<p>Între metoda Greedy şi metoda Backtracking putem enumera următoarele diferenţe:</p>
+<ul>
+  <li>ambele tehnici oferă soluţii sub formă de vector</li>
+  <li>tehnica Backtracking oferă toate soluţiile problemei, în timp ce Greedy oferă o singură soluţie</li>
+  <li>tehnica Greedy nu dispune de mecanismul întoarcerii, specific tehnici Backtracking</li>
+</ul>
+      </div>
+    </div>
+    <div id="footer">
+    </div>
+  </div>
+</body>
+</html>

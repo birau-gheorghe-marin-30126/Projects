@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Metode de programare</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine&amp;v1" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div class="slogan">Metode de <a href="#">programare</a></div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="backtracking.html">Backtracking</a></li>
+          <li class="current"><a href="divide_impera.html">Divide et impera</a></li>
+          <li><a href="recursivitate.html">Recursivitate</a></li>
+          <li><a href="greedy.html">Greedy</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="sidebar_container">
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+        <h3>Stiati ca?</h3>
+        <p>Limbajul C++ a fost inventat de către Bjarne Stroustrup în 1979, ca o extindere a limbajului C. Limbajul C a fost inventat în 1969-1973 de către Dennis Ritchie pentru a realiza sistemul de operare Unix.</p>
+        </div>
+        <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
+        <div class="sidebar">
+          <h3>Noutati</h3>
+          <p>Pentru prima dată, limbajul C++ oferă suport, independent de platforma de dezvoltare, pentru implementarea aplicațiilor ce presupun programarea concurentă (multithreading). Înainte de standardul C++11, aplicațiile multithreading se bazau pe extensii specifice platformei, spre exemplu Intel TBB, OpenMP, Pthreads, etc. </p>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Divide et Impera</h1>
+        
+        <p>Expresia provine din latină unde exista și ca proverb: „Divide et impera”. În română este mai cunoscut ca:„divide și cucerește”, „dezbină și stăpânește”. Alte posibile traduceri ar fi: dezbină și impune-ți voința sau dezbină și domină.</p>
+
+        <p>În politică și sociologie, dezbină și stăpânește este o combinație de tactici (politice, militare sau economice) de câștigare și menținere a puterii prin divizarea unei populații în entități mai mici care luate separat au putere mai mică decât cel care își impune voința. Este deseori întâlnită ca o strategie în care grupuri de putere mică sunt împiedicate să se unească și să devină mai puternice.</p>
+
+        <p>Folosită efectiv, acestă strategie permite celor cu putere reală puțină să-și impună voința asupra celor care colectiv au putere mare (sau ar avea dacă ar reuși să se unescă).</p>
+
+        <p>Expresia este atribuită imparatului roman Iulius Cezar si reprezinta unul dintre principiile sale de guvernare.</p>
+
+        <p>Elementele constitutive ale acestei strategii sunt:</p>
+
+        <ul>
+            <li>crearea sau neîmpotrivirea la formarea de grupuri înguste din populația vizată. Astfel de grupuri absorb resurse și previn alianțe care să provoace pe dominator.</li>
+
+            <li>ajutarea și promovarea celor care sunt dispuși să colaboreze cu cel ce își impune voința, adesea acordându-le pământ, bogății, titluri, funcții ce aparțin unei persoane din același grup sau din grup „rival”.</li>
+
+            <li>promovarea neîncrederii și neînțelegerii între membrii unui grup sau între grupuri.</li>
+
+            <li>impunerea propriei voințe asupra grupurilor sau membrilor unui grup în vederea obținerii rezultatelor dorite. Impunerea se poate realiza în mod subtil sau în mod transparent. Un exemplu ar fi încurajarea cheltuielilor de lux (ex. palat strălucitor) care diminuează cheltuielile militare sau pe cele legate de manevre politice.</li>
+        </ul>
+
+        <p>Această strategie necesită multă îndemânare și finețe politică, deasemenea o bună înțelegere a științei politice, istoriei, psihologiei.</p>
+
+        <p>In informatica acesta metoda are utilitatea ca o problema este mult mai usor "stapanita" si astfel rezolvata , daca este "despicata" in mai multe parti.</p>
+        
+        <h3>Principiul metodei:</h3>
+<ul>
+    <li>Se descompune problema data in doua sau mai multe probleme de aceeasi natura.Acestea pot fi de 2 tipuri: elementare sau neelementare.</li>
+    <li>Cele elementare se rezolva direct, iar cele neelementare se descompun in continuare in alte subprobleme elementare si neelementare. Procesul de descompunere continua pana cand s-au obtinut numai probleme elementare.</li>
+    <li>Solutia problemei initiale se obtine prin reconstituirea si recombinarea solutiilor subproblemelor in ordine inversa. Datorita acestui principiu de functionare algoritmul Divide et  impera are un caracter recursiv.</li>
+</ul>
+        <h3>Situatiile in care se utilizeaza metoda:</h3>
+<p>Cel mai potrivit model pentru prelucrarea metodei il constituie prelucrarea unui vector de forma:x1,x2,x3,...,xn.Aplicarea metodei consta in impartirea sirului dat in 2 subsiruri (x1-xm) respectiv (xm+1-xn) si prelucrarea fiecaruia dintre ele. Astfel am descompus problema in 2 subprobleme de acelasi tip.</p>
+
+<p>In continuare pentru fiecare din subsirurile obtinute sunt posibile 2 situatii:</p>
+    <ul>
+        <li>se poate prelucra direct;</li>
+        <li>nu se poate prelucra direct, caz in care subsirul trebuie descompus in acelasi fel;</li>
+    </ul>
+          
+<p>Lantul de descompuneri va continua pana cand obtinem numai subsiruri prelucrabile direct.</p>
+      
+<p>Vom prezenta în cele ce urmează câteva probleme care se pot rezolva cu ajutorul metodei Divide et impera:</p>
+    <ul>
+        <li>determinarea elementului maxim dintr-un sir de numere dat;</li>
+        <li>algoritmul de cautare binara;</li>
+        <li>algoritmul de sortare rapida a unui vector(Quic Sort);</li>
+        <li>algoritmul de sortare a unui vector prin interclasare(Merge Sort); </li>
+        <li>problema turnurilor din Hanoi.</li>
+    </ul>
+      </div>
+    </div>
+    <div id="footer">
+    </div>
+  </div>
+</body>
+</html>
